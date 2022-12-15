@@ -203,12 +203,11 @@ When you are ready, reload Nginx to apply the changes:
 
 Your new website is now active, but the web root /var/www/projectLEMP is still empty. Create an index.html file in that location so that we can test that your new server block works as expected:
 
-```
-sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html
-```
+`sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html`
+
 Now go to your browser and try to open your website URL using IP address:
 
-`http://<Public-IP-Address>80`
+`http://<Public-IP-Address>:80`
 
 ![Image](./Images/Screenshot_11.png)
 
@@ -236,7 +235,7 @@ phpinfo();
 
 You can now access this page in your web browser by visiting the domain name or public IP address you’ve set up in your Nginx configuration file, followed by /info.php:
 
-http://server_domain_or_IP/info.php
+`http://server_domain_or_IP/info.php`
 
 You will see a web page containing detailed information about your server:
 
@@ -250,11 +249,11 @@ You can always regenerate this file if you need it later.
 
 ## STEP 6 – RETRIEVING DATA FROM MYSQL DATABASE WITH PHP
 
-In this step you will create a test database (DB) with simple "To do list" and configure access to it, so the Nginx website would be able to query data from the DB and display it.
+In this step you will create a test database with simple "To do list" and configure access to it, so the Nginx website would be able to query data from the DB and display it.
 
 We’ll need to create a new user with the mysql_native_password authentication method in order to be able to connect to the MySQL database from PHP.
 
-We will create a database named Daniel_DB and a user named Daniel, but you can replace these names with different values.
+We will create a database named Daniel_DB and a user named Daniel, but you can replace these names with any name of your choice.
 
 First, connect to the MySQL console using the root account:
 
@@ -262,24 +261,24 @@ First, connect to the MySQL console using the root account:
 
 To create a new database, run the following command from your MySQL console:
 
-mysql> CREATE DATABASE `Daniel_DB`;
+```
+`CREATE DATABASE `Daniel_DB`;
+```
 
 Now you can create a new user and grant him full privileges on the database you have just created.
 
-The following command creates a new user named Daniel, using mysql_native_password as default authentication method. We’re defining this user’s password as Dan!el@1, but you should replace this value with a secure password of your own choosing.
+The following command creates a new user named **Daniel,** using mysql_native_password as default authentication method. We’re defining this user’s password as **Dan!el@1,** but you should replace this value with a secure password of your own choosing.
 
-CREATE USER 'Daniel'@'%' IDENTIFIED WITH mysql_native_password BY 'Dan!el@1';
+`CREATE USER 'Daniel'@'%' IDENTIFIED WITH mysql_native_password BY 'Dan!el@1';`
 
 Now we need to give this user permission over the Daniel_DB database:
 
-mysql> GRANT ALL ON Daniel_DB.* TO 'Daniel'@'%';
+`GRANT ALL ON Daniel_DB.* TO 'Daniel'@'%';`
 
-This will give the Daniel user full privileges over the Daniel_DB database, while preventing this user from creating or modifying other databases on your server.
+This will give the **Daniel user full privileges over the Daniel_DB database, while preventing this user from creating or modifying other databases on your server.**
 
 
-Now exit the MySQL shell with:
-
-mysql> `exit`
+Now exit the MySQL shell with: `exit`
 
 You can test if the new user has the proper permissions by logging in to the MySQL console again, this time using the custom user credentials:
 
@@ -287,7 +286,7 @@ You can test if the new user has the proper permissions by logging in to the MyS
 
 Notice the -p flag in this command, which will prompt you for the password used when creating the Daniel user. After logging in to the MySQL console, confirm that you have access to the Daniel_DB database:
 
-mysql> SHOW DATABASES;
+`SHOW DATABASES;`
 
 This will give you the following output:
 
@@ -314,9 +313,9 @@ CREATE TABLE Daniel_DB.todo_list (
 ```
 
 
-Insert a few rows of content in the test table. You might want to repeat the next command a few times, using different VALUES:
+Insert a few rows of content in the test table. You might want to repeat the next command a few times, **using different VALUES:**
 
-`mysql> INSERT INTO Daniel_DB.todo_list (content) VALUES ("My first important item");`
+`mysql> INSERT INTO Daniel_DB.todo_list (content) VALUES ("Visit a friend");`
 
 To confirm that the data was successfully saved to your table, run:
 
@@ -377,7 +376,7 @@ You should see a page like this, showing the content you’ve inserted in your t
 
 ![Image](./Images/Screenshot_13.png)
 
-That means your PHP environment is ready to connect and interact with your MySQL server.
+This indicates that your PHP environment is ready to interact with your MySQL server.
 
 
 
