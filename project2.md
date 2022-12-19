@@ -1,6 +1,6 @@
-# LERM STACK IMPLEMENTATION ON AWS
+# **LERM STACK IMPLEMENTATION**
 
-## STEP 1 – INSTALLING THE NGINX WEB SERVER
+## **STEP 1 – INSTALLING THE NGINX WEB SERVER**
 In order to display web pages to our site visitors, we are going to employ a high perfromance web server - Nginx. One of the many rerasons we chose this is because it can handle a high volume of connections
 
 The first thing to do is to update the linux package repository with the command below:
@@ -50,7 +50,7 @@ If you see the page below, your web server has been properly installed and is no
 
 In fact, it is the same content that you previously got by ‘curl’ command, but represented in nice HTML formatting by your web browser.
 
-## STEP 2 - INSTALLING MYSQL (DBMS)
+## **STEP 2 - INSTALLING MYSQL (DBMS)**
 Now that you have a web server running, you need a database to manage the data. To install the Database, use the command below:
 
 `sudo apt install mysql-server`
@@ -100,7 +100,7 @@ To exit the MySQL console, type: `exit`
 
 Your MySQL server is now installed and secured. Next, we will install PHP, the final component in the LEMP stack.
 
-## STEP 3 — INSTALLING PHP
+## **STEP 3 — INSTALLING PHP**
 
 The reason we install PHP is to process code and produce dynamic contents for the web server.
 
@@ -115,9 +115,9 @@ When prompted, type **Y** and press **ENTER** to confirm installation.
 You now have your PHP components installed. Next, you will configure Nginx to use them.
 
 
-## STEP 4 — CONFIGURING NGINX TO USE PHP PROCESSOR
+## **STEP 4 — CONFIGURING NGINX TO USE PHP PROCESSOR**
 
-**The Nginx web server allows us to establish server blocks, which are similar to virtual hosts in Apache. It allows us to host several domains on a single server by encapsulating configuration information.**
+The Nginx web server allows us to establish server blocks, which are similar to virtual hosts in Apache. It allows us to host several domains on a single server by encapsulating configuration information.
 
 On Ubuntu 22.04, Nginx has one server block enabled by default and is configured to serve documents out of a directory at `/var/www/html`. While this works well for a single site, it can become difficult to manage if you are hosting multiple sites. Instead of modifying `/var/www/html`, we’ll create a directory structure within `/var/www` for your domain website, leaving /var/www/html in place as the default directory to be served if a client request does not match any other sites.
 
@@ -216,7 +216,7 @@ You can leave this file in place as a temporary landing page for your applicatio
 Your LEMP stack is now fully configured. In the next step, we’ll create a PHP script to test that Nginx is in fact able to handle .php files within your newly configured website.
 
 
-## STEP 5 – TESTING PHP WITH NGINX
+## **STEP 5 – TESTING PHP WITH NGINX**
 
 Your LEMP stack should now be completely set up.
 
@@ -247,7 +247,7 @@ After checking the relevant information about your PHP server through that page,
 
 You can always regenerate this file if you need it later.
 
-## STEP 6 – RETRIEVING DATA FROM MYSQL DATABASE WITH PHP
+## **STEP 6 – RETRIEVING DATA FROM MYSQL DATABASE WITH PHP**
 
 In this step you will create a test database with simple "To do list" and configure access to it, so the Nginx website would be able to query data from the DB and display it.
 
@@ -377,23 +377,3 @@ You should see a page like this, showing the content you’ve inserted in your t
 ![Image](./Images/Screenshot_13.png)
 
 This indicates that your PHP environment is ready to interact with your MySQL server.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
