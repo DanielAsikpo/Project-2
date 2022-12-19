@@ -1,4 +1,4 @@
-# **LERM STACK IMPLEMENTATION**
+# **LERM STACK IMPLEMENTATION ON AWS**
 
 ## **STEP 1 – INSTALLING THE NGINX WEB SERVER**
 In order to display web pages to our site visitors, we are going to employ a high perfromance web server - Nginx. One of the many rerasons we chose this is because it can handle a high volume of connections
